@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "../styling/components/RoomList.scss";
-
+import { useNavigate } from "react-router-dom";
 const RoomActions = ({ onAddRoom }) => {
   const [roomStatus, setRoomStatus] = useState("");
   const [feeStatus, setFeeStatus] = useState("");
@@ -12,6 +12,7 @@ const RoomActions = ({ onAddRoom }) => {
   const [address, setAddress] = useState("");
   const [numBedrooms, setNumBedrooms] = useState("");
   const [imageUrl, setImageUrl] = useState("");
+  const navigate = useNavigate();
 
   const handleRoomStatusChange = (e) => {
     setRoomStatus(e.target.value);
@@ -29,7 +30,7 @@ const RoomActions = ({ onAddRoom }) => {
     // Xử lý tìm kiếm hoặc lọc kết quả ở đây
     console.log("Tìm kiếm:", { roomStatus, feeStatus, roomSearch });
   };
-  const handleAddRoomClick = () => {
+  /*const handleAddRoomClick = () => {
     if (!roomId || !price) return alert("Vui lòng nhập đầy đủ thông tin.");
 
     const newRoom = {
@@ -53,7 +54,7 @@ const RoomActions = ({ onAddRoom }) => {
     setAddress("");
     setNumBedrooms("");
     setImageUrl("");
-  };
+  };*/
   const handleCustomersClick = () => {
     // Chức năng quản lý khách hàng (có thể điều hướng đến trang khách hàng)
     console.log("Quản lý khách hàng");
@@ -117,7 +118,7 @@ const RoomActions = ({ onAddRoom }) => {
       <button className="btn search-btn" onClick={handleSearchClick}>
         🔍 Tìm kiếm
       </button>
-      <button className="btn add-btn" onClick={handleAddRoomClick}>
+      <button className="btn add-btn" onClick={() => navigate("/room/add")}>
         Thêm phòng
       </button>
       <button className="btn customers-btn" onClick={handleCustomersClick}>

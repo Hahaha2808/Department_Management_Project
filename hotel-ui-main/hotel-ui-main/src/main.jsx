@@ -4,7 +4,9 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import Authentication from "./pages/Authentication";
 import Room from "./pages/Room";
-import EditRoom from "./pages/EditRoom";
+import RoomForm from "./pages/RoomForm";
+import Service from "./pages/Service";
+import ServiceForm from "./pages/ServiceForm";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -15,9 +17,11 @@ const router = createBrowserRouter([
     element: <Room />,
   },
   {
-    path: "/room/edit",
-    element: <EditRoom />,
+    path: "/room/add",
+    element: <RoomForm />,
   },
+  { path: "/service", element: <Service /> },
+  { path: "/service/edit", element: <ServiceForm /> },
 ]);
 
 createRoot(document.getElementById("root")).render(

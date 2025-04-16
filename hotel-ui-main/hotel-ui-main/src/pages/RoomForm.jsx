@@ -1,13 +1,13 @@
 import React from "react";
-import RoomEditForm from "../components/RoomEditForm";
+import AddRoomForm from "../components/AddRoomForm";
 
-const EditRoom = () => {
+const RoomForm = () => {
   return (
     <div className="room-wrapper">
       <h1 className="room-title"></h1>
-      <RoomEditForm />
+      <AddRoomForm />
     </div>
   );
 };
 
-export default EditRoom;
+export default RoomForm;

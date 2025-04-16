@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import "../styling/components/RoomEditForm.scss";
-
-const RoomEditForm = () => {
+import "../styling/components/AddRoomForm.scss";
+import { useNavigate } from "react-router-dom";
+const AddRoomForm = () => {
   const [formData, setFormData] = useState({
     roomNumber: "",
     house: "",
@@ -17,6 +17,7 @@ const RoomEditForm = () => {
     description: "",
     image: null,
   });
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -38,7 +39,7 @@ const RoomEditForm = () => {
   return (
     <div className="edit-room-wrapper">
       <div className="edit-room-header">
-        <h2 className="edit-room-title">Sửa Phòng</h2>
+        <h2 className="edit-room-title">Thêm Phòng</h2>
         <form onSubmit={handleSubmit}>
           <div className="edit-room-container">
             <div style={{ flex: "1 1 45%" }}>
@@ -180,23 +181,28 @@ const RoomEditForm = () => {
             className="edit-room-container"
             style={{ flexDirection: "column" }}
           >
-            <label>Địa chỉ</label>
-            <textarea
-              name="address"
-              value={formData.description}
-              onChange={handleChange}
-              rows={1}
-            />
-            <label>Mô tả thêm</label>
-            <textarea
-              name="description"
-              value={formData.description}
-              onChange={handleChange}
-              rows={3}
-            />
-
-            <label>Hình ảnh</label>
-            <input type="file" onChange={handleFileChange} />
+            <div className="form-group">
+              <label>Địa chỉ</label>
+              <textarea
+                name="address"
+                value={formData.address}
+                onChange={handleChange}
+                rows={1}
+              />
+            </div>
+            <div className="form-group">
+              <label>Mô tả thêm</label>
+              <textarea
+                name="description"
+                value={formData.description}
+                onChange={handleChange}
+                rows={3}
+              />
+            </div>
+            <div className="form-group">
+              <label>Hình ảnh</label>
+              <input type="file" onChange={handleFileChange} />
+            </div>
           </div>
 
           <div
@@ -207,8 +213,8 @@ const RoomEditForm = () => {
             }}
           >
             <button
-              type="button"
               className="btn"
+              onClick={() => navigate("/room")}
               style={{ backgroundColor: "#f0ad4e", marginRight: "10px" }}
             >
               Quay về
@@ -227,4 +233,4 @@ const RoomEditForm = () => {
   );
 };
 
-export default RoomEditForm;
+export default AddRoomForm;
