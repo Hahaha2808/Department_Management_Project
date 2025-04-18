@@ -42,7 +42,7 @@ const userSchema = new mongoose.Schema({
     contract : [
         {
         type : mongoose.Schema.ObjectId,
-        ref : 'Contract'
+        ref : 'contract'
         }
     ]
 },{
