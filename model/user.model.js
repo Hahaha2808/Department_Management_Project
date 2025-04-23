@@ -1,9 +1,14 @@
 import mongoose from "mongoose";
 
 const userSchema = new mongoose.Schema({
-    name : {
+    fullnamename : {
         type : String,
         required : [true,"Provide name"]
+    },
+    username: {
+        type : String, 
+        required : true,
+        unique : true 
     },
     email : {
         type : String,
@@ -14,11 +19,7 @@ const userSchema = new mongoose.Schema({
         type : String,
         required : [true, "provide password"]
     },
-    avatar : {
-        type : String,
-        default : ""
-    },
-    mobile : {
+    phone_number : {
         type : Number,
         default : null
     },
@@ -30,14 +31,10 @@ const userSchema = new mongoose.Schema({
         type : Boolean,
         default : false
     },
-    dateofbirth : {
-        type : Date,
-        default : ""
-    },
     role : {
         type : String,
-        enum : ['ADMIN',"USER"],
-        default : "USER"
+        enum : ['admin',"landlord"],
+        default : "landlord"
     },
     contract : [
         {
