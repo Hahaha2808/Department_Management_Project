@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import "../styling/components/AddRoomForm.scss";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
+
 const AddRoomForm = () => {
   const [formData, setFormData] = useState({
     roomNumber: "",
-    house: "",
     price: "",
     length: "",
     width: "",
@@ -17,6 +18,7 @@ const AddRoomForm = () => {
     description: "",
     image: null,
   });
+
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -31,9 +33,33 @@ const AddRoomForm = () => {
     setFormData((prev) => ({ ...prev, image: e.target.files[0] }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(formData);
+    const form = new FormData();
+
+    // Append data to form
+    for (let key in formData) {
+      form.append(key, formData[key]);
+    }
+
+    try {
+      //const token = localStorage.getItem("token"); // Get token from localStorage
+      const res = await axios.post(
+        "http://localhost:5000/api/rooms/add",
+        form,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+            //Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+
+      console.log("✔ Thêm phòng thành công:", res.data);
+      navigate("/rooms"); // Navigate to room listing page after success
+    } catch (err) {
+      console.error("❌ Lỗi khi gửi form:", err.response?.data || err.message);
+    }
   };
 
   return (
@@ -99,19 +125,6 @@ const AddRoomForm = () => {
               </div>
             </div>
             <div style={{ flex: "1 1 45%" }}>
-              <div className="form-group">
-                <label>Nhà *</label>
-                <select
-                  name="house"
-                  value={formData.house}
-                  onChange={handleChange}
-                  required
-                >
-                  <option value="">-- Chọn nhà --</option>
-                  <option value="The Art">Chung cư The Art</option>
-                  <option value="Other">Khác</option>
-                </select>
-              </div>
               <div className="form-group">
                 <label>Đơn giá *</label>
                 <div style={{ display: "flex", alignItems: "center" }}>
@@ -214,7 +227,7 @@ const AddRoomForm = () => {
           >
             <button
               className="btn"
-              onClick={() => navigate("/room")}
+              onClick={() => navigate("/rooms")}
               style={{ backgroundColor: "#f0ad4e", marginRight: "10px" }}
             >
               Quay về

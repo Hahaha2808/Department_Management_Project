@@ -1,0 +1,212 @@
+.room-container {
+  height: 100vh;
+  width: 100%;
+  position: relative;
+  display: flex;
+  background-color: #dddddd;
+}
+.room-wrapper {
+  background-color: #e6f5ff;
+  border-radius: 0;
+  padding: 30px;
+  box-shadow: 0px 8px 30px rgba(0, 0, 0, 0.08);
+  margin: 20px auto;
+  max-width: 100%;
+}
+.room-title {
+  font-size: 40px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #47546d;
+  text-align: left;
+}
+
+.room-header {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 0px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  margin-bottom: 24px;
+}
+
+.room-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  padding: 30px;
+  background-color: #ffffff;
+  border-radius: 0px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+}
+
+/*.room-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: flex-start;
+  }*/
+.room-card {
+  background-color: #e6f5ff;
+  border-radius: 0px;
+  padding: 20px;
+  width: 260px;
+  box-shadow: 0px 6px 14px rgba(0, 0, 0, 0.08);
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.12);
+  }
+
+  .room-id {
+    font-weight: bold;
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+
+  .tenant {
+    margin-top: 23px;
+    margin-bottom: 10px;
+    font-size: 14px;
+  }
+
+  .price {
+    color: red;
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+
+  .room-details {
+    display: flex;
+    justify-content: space-between;
+    width: 50%;
+  }
+
+  .area,
+  .num-bedrooms {
+    font-size: 14px;
+    margin-bottom: 10px;
+    color: #333;
+  }
+  .address {
+    margin-bottom: 10px;
+    font-size: 14px;
+  }
+
+  .room-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f0f0f0;
+    border-radius: 0px;
+    height: 200px;
+    margin-bottom: 15px;
+    overflow: hidden;
+    width: 100%;
+  }
+
+  .room-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .room-image p {
+    text-align: center;
+    color: #999;
+    font-style: italic;
+  }
+
+  .room-actions {
+    display: flex;
+    justify-content: space-between;
+
+    .btn {
+      padding: 6px 12px;
+      font-size: 12px;
+      border-radius: 4px;
+      border: none;
+      cursor: pointer;
+    }
+
+    .edit-btn {
+      background-color: #337ab7;
+      color: white;
+      width: 53%;
+    }
+
+    .delete-btn {
+      background-color: #d9534f;
+      color: white;
+    }
+  }
+
+  .add-tenant {
+    background-color: #5bc0de;
+    color: white;
+    font-size: 10px;
+    margin-bottom: 10px;
+    width: 53%;
+  }
+}
+
+.room-page {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.roompage-actions {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+
+  .dropdown {
+    padding: 8px 14px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    font-size: 13px;
+    background: white;
+  }
+
+  .search-input {
+    padding: 8px 12px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    width: 200px;
+  }
+
+  .search-btn {
+    background-color: #2d89ef;
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #1b5fbf;
+    }
+  }
+
+  .add-btn {
+    background-color: #f0ad4e;
+  }
+
+  .customers-btn {
+    background-color: #5bc0de;
+  }
+}
+
+.btn {
+  padding: 8px 14px;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+}

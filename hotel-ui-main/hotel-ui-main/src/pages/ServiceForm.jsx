@@ -50,22 +50,6 @@ export default function ServiceForm({
           {errors.name && <p className="error">{errors.name}</p>}
         </div>
 
-        <div className="edit-form-group">
-          <label className="service-label">Loại *</label>
-          <select
-            name="type"
-            value={formData.type}
-            onChange={handleChange}
-            className="service-input"
-          >
-            <option value="">Chọn loại dịch vụ</option>
-            <option value="ĐIỆN">ĐIỆN</option>
-            <option value="NƯỚC">NƯỚC</option>
-            <option value="KHÁC">KHÁC</option>
-          </select>
-          {errors.type && <p className="error">{errors.type}</p>}
-        </div>
-
         {/* Đơn giá và Đang dùng cùng hàng */}
         <div className="edit-form-group">
           <label className="service-label">Đơn giá *</label>
@@ -123,3 +107,18 @@ export default function ServiceForm({
     </form>
   );
 }
+/*<div className="edit-form-group">
+          <label className="service-label">Loại *</label>
+          <select
+            name="type"
+            value={formData.type}
+            onChange={handleChange}
+            className="service-input"
+          >
+            <option value="">Chọn loại dịch vụ</option>
+            <option value="ĐIỆN">ĐIỆN</option>
+            <option value="NƯỚC">NƯỚC</option>
+            <option value="KHÁC">KHÁC</option>
+          </select>
+          {errors.type && <p className="error">{errors.type}</p>}
+        </div>*/
