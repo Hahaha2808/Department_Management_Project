@@ -64,6 +64,7 @@ import axios from "axios";
       "https://noithatmanhhe.vn/wp-content/uploads/2024/03/15-khong-gian-phong-khach-dep-1.jpg",
   },
 ];*/
+
 const Room = () => {
   const [roomStatus, setRoomStatus] = useState("");
   const [roomNumber, setRoomNumber] = useState("");

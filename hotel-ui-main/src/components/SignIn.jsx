@@ -4,19 +4,19 @@ import { useEffect, useState, useRef } from 'react'
 
 function SignIn({text}) {
   const [isEmailClicked, setIsEmailClicked] = useState(false)
-    const emailRef = useRef(null)
+  const emailRef = useRef(null)
 
-    const [isPasswordClicked, setIsPasswordClicked] = useState(false)
-    const passwordRef = useRef(null)
+  const [isPasswordClicked, setIsPasswordClicked] = useState(false)
+  const passwordRef = useRef(null)
 
-    const [emailError, setEmailError] = useState("")
-    const [passError, setPassError] = useState("")
-    const [formError, setFormError] = useState("")
+  const [emailError, setEmailError] = useState("")
+  const [passError, setPassError] = useState("")
+  const [formError, setFormError] = useState("")
 
-    const [account , setAccount] = useState({
-        email: "",
-        password: ""
-    })
+  const [account , setAccount] = useState({
+      email: "",
+      password: ""
+  })
 
   return (
     <div className='signin-container'>

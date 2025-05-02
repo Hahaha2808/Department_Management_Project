@@ -1,7 +1,7 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-
+import "./index.css"
 import Authentication from "./pages/Authentication";
 import Home from "./pages/Home.jsx";
 import Room from "./pages/Room";
@@ -10,18 +10,29 @@ import EditRoomForm from "./components/EditRoomForm";
 import Service from "./pages/Service";
 import ServiceForm from "./pages/ServiceForm";
 import AddCustomerForm from "./components/AddCustomerForm";
+import Electric from "./pages/Electric.jsx";
+import Water from "./pages/Water.jsx";
+
 const router = createBrowserRouter([
   {
     path: "/auth",
     element: <Authentication />,
   },
   {
-    path: "/home",
+    path: "/",
     element: (
       <>
-        <Home></Home>
+        <Home/>
       </>
     ),
+  },
+  {
+    path: "/electric",
+    element: <Electric/>
+  },
+  {
+    path: "/water",
+    element: <Water/>
   },
   {
     path: "/rooms",
