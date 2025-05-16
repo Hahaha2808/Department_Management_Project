@@ -1,18 +1,34 @@
 import mongoose from "mongoose";
 
 const serviceSchema = new mongoose.Schema({
-    electric : {
-        type : String,
-        default : ""
+    name: {
+        type: String,
+        required: true,
+        trim: true
     },
-    water : {
-        type : String,
-        default : ""
+    price: {
+        type: Number,
+        required: true,
     },
-    others : {
-        type : String,
-        default : ""
+    unit: {
+        type: String,
+        required: true,
+        trim: true
+    },
+    description: {
+        type: String,
+        required: true,
+        trim: true,
+    },
+    landlord_id: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "user",
+        required: true,
     }
+
+},
+{
+    timestamps: true,
 })
 
 const ServiceModel = mongoose.model("Service",serviceSchema)

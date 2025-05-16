@@ -1,23 +1,23 @@
 import sendEmail from '../config/sendEmail.js'
-import UserModel from '../models/user.model.js'
+import UserModel from '../model/user.model.js'
 import bcryptjs from 'bcryptjs'
 import verifyEmailTemplate from '../utils/verifyEmailTemplate.js'
 import generatedAccessToken from '../utils/generatedAccessToken.js'
 import genertedRefreshToken from '../utils/generatedRefreshToken.js'
-import uploadImageClodinary from '../utils/uploadImageClodinary.js'
+//import uploadImageClodinary from '../utils/uploadImageClodinary.js'
 import generatedOtp from '../utils/generatedOtp.js'
 import forgotPasswordTemplate from '../utils/forgotPasswordTemplate.js'
 import jwt from 'jsonwebtoken'
 
 export async function registerUserController(request,response){
     try {
-        const { name, email , password } = request.body
+        const {name ,email ,password } = request.body
 
         if(!name || !email || !password){
             return response.status(400).json({
-                message : "provide email, name, password",
+                message : "provide email, name , password",
                 error : true,
-                success : false
+                success : false,
             })
         }
 
@@ -47,9 +47,9 @@ export async function registerUserController(request,response){
 
         const verifyEmail = await sendEmail({
             sendTo : email,
-            subject : "Verify email from binkeyit",
+            subject : "Verify email from ",
             html : verifyEmailTemplate({
-                name,
+                name ,
                 url : VerifyEmailUrl
             })
         })
@@ -105,18 +105,18 @@ export async function verifyEmailController(request,response){
 //login controller
 export async function loginController(request,response){
     try {
-        const { email , password } = request.body
+        const {email, password} = request.body 
 
 
-        if(!email || !password){
+        if(!email  || !password){
             return response.status(400).json({
-                message : "provide email, password",
+                message : "provide email , password",
                 error : true,
                 success : false
             })
         }
 
-        const user = await UserModel.findOne({ email })
+        const user = await UserModel.findOne({email })
 
         if(!user){
             return response.status(400).json({
@@ -126,15 +126,15 @@ export async function loginController(request,response){
             })
         }
 
-        if(user.status !== "Active"){
-            return response.status(400).json({
-                message : "Contact to Admin",
-                error : true,
-                success : false
-            })
-        }
+        // if(user.status !== "Active"){
+        //     return response.status(400).json({
+        //         message : "Contact to Admin",
+        //         error : true,
+        //         success : false
+        //     })
+        // }
 
-        const checkPassword = await bcryptjs.compare(password,user.password)
+        const checkPassword = await bcryptjs.compare(password, user.password)
 
         if(!checkPassword){
             return response.status(400).json({
@@ -245,7 +245,7 @@ export async  function uploadAvatar(request,response){
 export async function updateUserDetails(request,response){
     try {
         const userId = request.userId //auth middleware
-        const { name, email, mobile, password } = request.body 
+        const { name , email, mobile, password } = request.body 
 
         let hashPassword = ""
 
